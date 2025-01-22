@@ -1,0 +1,13 @@
+﻿using GameService.Application.Interfaces.CommandQuery;
+
+namespace GameService.Application.Features.Games.Commands.CreateGame
+{
+    public class CreateGameCommand : ICommand
+    {
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public decimal Price { get; set; }
+        public Guid PublisherId { get; set; }
+        public List<Guid> GenreIds { get; set; } = new List<Guid>();
+    }
+}
