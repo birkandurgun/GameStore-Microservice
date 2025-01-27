@@ -17,18 +17,16 @@ namespace PaymentProcessor.IntegrationEvents.EventHandlers
         {
             // Payment Process
 
-            bool isPaymentSuccess = true;
-            //bool isPaymentSuccess = false;
+            //bool isPaymentSuccess = true;
+            bool isPaymentSuccess = false;
 
             IntegrationEvent paymentEvent = isPaymentSuccess
                 ? new OrderPaymentSuccessIntegrationEvent(integrationEvent.OrderId)
                 : new OrderPaymentFailedIntegrationEvent(integrationEvent.OrderId,"An error occured!");
 
-            Console.WriteLine("Event fired.");
-
             _eventBus.Publish(paymentEvent);
 
-            Console.WriteLine("Published");
+            Console.WriteLine($"Payment Success: {isPaymentSuccess} \nOrderId: {integrationEvent.OrderId}");
 
             return Task.CompletedTask;
         }
