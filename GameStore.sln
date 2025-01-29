@@ -45,6 +45,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentProcessor", "src\Ser
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificationService.Api", "src\Services\NotificationService\NotificationService.Api\NotificationService.Api.csproj", "{9B6917E2-836B-4668-A946-F228DB76DF9B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityService.Api", "src\Services\IdentityService\IdentityService.Api\IdentityService.Api.csproj", "{2A323551-EC11-42D0-ADA3-D09C37C9B864}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{9B6917E2-836B-4668-A946-F228DB76DF9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B6917E2-836B-4668-A946-F228DB76DF9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B6917E2-836B-4668-A946-F228DB76DF9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A323551-EC11-42D0-ADA3-D09C37C9B864}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A323551-EC11-42D0-ADA3-D09C37C9B864}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A323551-EC11-42D0-ADA3-D09C37C9B864}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A323551-EC11-42D0-ADA3-D09C37C9B864}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -112,5 +118,6 @@ Global
 		{7EAE3A2C-9F80-4BE7-8CDE-66298DE7DCD0} = {1906D5C1-DA07-4EB7-BE5D-F7A2C1D691DC}
 		{6D367D09-042B-497F-9DE5-636FD6F984AC} = {443C08A9-8DF7-476E-98E4-967239388FF3}
 		{9B6917E2-836B-4668-A946-F228DB76DF9B} = {0C57A442-6FF8-4DDF-A6B1-E681BBAD0216}
+		{2A323551-EC11-42D0-ADA3-D09C37C9B864} = {F0D23543-47D4-4343-81CB-596B25E2537F}
 	EndGlobalSection
 EndGlobal
