@@ -22,11 +22,15 @@ namespace EventBus.Base.Events
 
         public virtual string ProcessEventName(string eventName)
         {
-            if (_config.DeleteEventPrefix)
-                eventName = eventName.TrimStart(_config.EventNamePrefix.ToArray());
+            if (_config.DeleteEventPrefix && eventName.StartsWith(_config.EventNamePrefix))
+            {
+                eventName = eventName.Substring(_config.EventNamePrefix.Length);
+            }
 
-            if (_config.DeleteEventSuffix)
-                eventName = eventName.TrimEnd(_config.EventNameSuffix.ToArray());
+            if (_config.DeleteEventSuffix && eventName.EndsWith(_config.EventNameSuffix))
+            {
+                eventName = eventName.Substring(0, eventName.Length - _config.EventNameSuffix.Length);
+            }
 
             return eventName;
         }

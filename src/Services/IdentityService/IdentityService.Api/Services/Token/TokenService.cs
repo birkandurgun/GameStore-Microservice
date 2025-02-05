@@ -9,19 +9,19 @@ namespace IdentityService.Api.Services.Token
     public class TokenService : ITokenService
     {
         private readonly JwtSettings _jwtSettings;
-        private readonly IConfiguration _configuration;
 
         public TokenService(IOptions<JwtSettings> options)
         {
             _jwtSettings = options.Value;
         }
 
-        public async Task<string> GenerateTokenAsync(string userId, string email, IList<string> roles)
+        public async Task<string> GenerateTokenAsync(string userId, string email, string userName, IList<string> roles)
         {
             var claims = new List<Claim>
             {
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim(ClaimTypes.NameIdentifier, userId),
+                new Claim("UserName", userName),
                 new Claim(ClaimTypes.Email, email),
             };
 

@@ -101,7 +101,7 @@ namespace IdentityService.Api.Services.User
 
             var roles = await _userManager.GetRolesAsync(user);
 
-            var token = await _tokenService.GenerateTokenAsync(user.Id.ToString(), user.Email, roles);
+            var token = await _tokenService.GenerateTokenAsync(user.Id.ToString(), user.Email, user.UserName, roles);
             return new LoginResponseDTO { Success = true, Token = token };
 
         }

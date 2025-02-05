@@ -2,6 +2,6 @@
 {
     public interface ITokenService
     {
-        Task<string> GenerateTokenAsync(string userId, string email, IList<string> roles);
+        Task<string> GenerateTokenAsync(string userId, string email, string userName, IList<string> roles);
     }
 }
