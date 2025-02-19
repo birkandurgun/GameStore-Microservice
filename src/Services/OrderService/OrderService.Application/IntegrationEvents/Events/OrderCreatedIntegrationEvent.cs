@@ -1,6 +1,6 @@
 ﻿using EventBus.Base.Events;
 
-namespace PaymentProcessor.IntegrationEvents.Events
+namespace OrderService.Application.IntegrationEvents.Events
 {
     public class OrderCreatedIntegrationEvent : IntegrationEvent
     {
@@ -8,7 +8,7 @@ namespace PaymentProcessor.IntegrationEvents.Events
 
         public OrderCreatedIntegrationEvent()
         {
-            
+
         }
 
         public OrderCreatedIntegrationEvent(Guid orderId)

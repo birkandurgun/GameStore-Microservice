@@ -1,6 +1,6 @@
 ﻿using EventBus.Base.Events;
 
-namespace PaymentProcessor.IntegrationEvents.Events
+namespace OrderService.Presentation.IntegrationEvents.Events
 {
     public class OrderPaymentFailedIntegrationEvent : IntegrationEvent
     {

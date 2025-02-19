@@ -4,9 +4,9 @@ namespace PaymentProcessor.IntegrationEvents.Events
 {
     public class OrderPaymentSuccessIntegrationEvent : IntegrationEvent
     {
-        public int OrderId { get; set; }
+        public Guid OrderId { get; set; }
 
-        public OrderPaymentSuccessIntegrationEvent(int orderId)
+        public OrderPaymentSuccessIntegrationEvent(Guid orderId)
         {
             OrderId = orderId;
         }
