@@ -1,10 +1,11 @@
 ﻿using EventBus.Base.Configs;
 using EventBus.Base.Interfaces;
 using EventBus.Factory;
-using OrderService.Presentation.IntegrationEvents.EventHandlers;
-using OrderService.Presentation.IntegrationEvents.Events;
+using LibraryService.Api.IntegrationEvents.EventHandlers;
+using LibraryService.Api.IntegrationEvents.Events;
+using RabbitMQ.Client;
 
-namespace OrderService.Presentation.EventBusConfigurations
+namespace LibraryService.Api.EventBusConfigurations
 {
     public static class EventBusConfigurations
     {
@@ -15,7 +16,7 @@ namespace OrderService.Presentation.EventBusConfigurations
                 EventBusConfig config = new EventBusConfig
                 {
                     ConnectionRetryCount = 5,
-                    SubscriberClientAppName = "OrderService",
+                    SubscriberClientAppName = "LibraryService",
                     EventBusType = "RabbitMQ",
                     EventNameSuffix = "IntegrationEvent"
                 };
@@ -23,9 +24,8 @@ namespace OrderService.Presentation.EventBusConfigurations
                 return EventBusFactory.Create(config, sp);
             });
 
-            services.AddTransient<CheckOutIntegrationEventHandler>();
-            services.AddTransient<OrderPaymentFailedIntegrationEventHandler>();
-            services.AddTransient<OrderPaymentSuccessIntegrationEventHandler>();
+            services.AddTransient<OrderCompletedIntegrationEventHandler>();
+            
         }
 
         public static void AddEventBusSubscription(this IServiceProvider serviceProvider)
@@ -34,9 +34,7 @@ namespace OrderService.Presentation.EventBusConfigurations
             {
                 var eventBus = serviceProvider.GetRequiredService<IEventBus>();
 
-                eventBus.Subscribe<CheckOutIntegrationEvent, CheckOutIntegrationEventHandler>();
-                eventBus.Subscribe<OrderPaymentFailedIntegrationEvent, OrderPaymentFailedIntegrationEventHandler>();
-                eventBus.Subscribe<OrderPaymentSuccessIntegrationEvent, OrderPaymentSuccessIntegrationEventHandler>();
+                eventBus.Subscribe<OrderCompletedIntegrationEvent, OrderCompletedIntegrationEventHandler>();
 
             }
             catch (Exception ex)

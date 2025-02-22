@@ -17,8 +17,8 @@ namespace PaymentProcessor.IntegrationEvents.EventHandlers
         {
             // Payment Process
 
-            //bool isPaymentSuccess = true;
-            bool isPaymentSuccess = false;
+            bool isPaymentSuccess = true;
+            //bool isPaymentSuccess = false;
 
             IntegrationEvent paymentEvent = isPaymentSuccess
                 ? new OrderPaymentSuccessIntegrationEvent(integrationEvent.OrderId)
